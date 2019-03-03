@@ -19,11 +19,13 @@ const Book = ({title, author, pages}) => {
 }
 
 class Library extends React.Component {
-    constructor(props){
-        super(props)
-        this.state = {
-            open:true
-        }
+    
+    state = { open: false }
+
+    toggleOpenClosed = () => {
+        this.setState(prevState => ({
+            open: !prevState.open
+        }))
     }
     render () {
         console.log(this.state)
@@ -31,6 +33,7 @@ class Library extends React.Component {
         return (
             <div>
                 <h1>The library is {this.state.open ? 'open' : 'closed'}</h1>
+                <button onClick={this.toggleOpenClosed}>Change</button>
                 {books.map(
                     (book, i) => 
                             <Book 
