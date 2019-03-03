@@ -28,12 +28,21 @@ const NotHiring = () =>
     <div>
         <p>The library is not hiring. Check back later for more info.</p>
     </div>
+    
 class Library extends React.Component {
     
     state = { 
         open: true,
         freeBookmark: true ,
         hiring: true
+    }
+
+    componentDidMount() {
+        console.log("The component is now mounted!")
+    }
+
+    componentDidUpdate() {
+        console.log("The component just updated");
     }
 
     toggleOpenClosed = () => {
